@@ -14,6 +14,8 @@
 		F3DF34B228F0619300237AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DF34B128F0619300237AA5 /* Assets.xcassets */; };
 		F3DF34B528F0619300237AA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DF34B328F0619300237AA5 /* LaunchScreen.storyboard */; };
 		F3DF34C128F3057300237AA5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C028F3057300237AA5 /* UserModel.swift */; };
+		F3DF34C328F3068200237AA5 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C228F3068200237AA5 /* SignupViewModel.swift */; };
+		F3DF34C528F306CF00237AA5 /* MakeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C428F306CF00237AA5 /* MakeRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		F3DF34B428F0619300237AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3DF34B628F0619300237AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DF34C028F3057300237AA5 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F3DF34C228F3068200237AA5 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		F3DF34C428F306CF00237AA5 /* MakeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 		F3DF34BF28F3055E00237AA5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F3DF34C228F3068200237AA5 /* SignupViewModel.swift */,
+				F3DF34C428F306CF00237AA5 /* MakeRequest.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -174,7 +180,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DF34AD28F0619200237AA5 /* SignupViewController.swift in Sources */,
+				F3DF34C328F3068200237AA5 /* SignupViewModel.swift in Sources */,
 				F3DF34A928F0619200237AA5 /* AppDelegate.swift in Sources */,
+				F3DF34C528F306CF00237AA5 /* MakeRequest.swift in Sources */,
 				F3DF34C128F3057300237AA5 /* UserModel.swift in Sources */,
 				F3DF34AB28F0619200237AA5 /* SceneDelegate.swift in Sources */,
 			);
