@@ -10,7 +10,7 @@ import Foundation
 class SignupViewModel {
     let baseUrl = "http://localhost:3065/user"
     
-    func submitSignUp(email: String, nickname: String, password: String, completion: @escaping () -> Void) {
+    func submitSignUp(email: String, nickname: String, password: String, completion: @escaping (Result<UserModel?, SignUpError>) -> Void) {
         guard let url = URL(string: baseUrl) else {
             print("url 생성 오류")
             return
@@ -21,12 +21,21 @@ class SignupViewModel {
             "password": password
         ])
         
-        URLSession.shared.dataTask(with: request) { data, _, error in
-            if let error = error {
-                print("error :\(error)")
-                return
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let response = response as? HTTPURLResponse else {
+                    completion(.failure(.serverError))
+                    return
+                }
+                let statusCode = response.statusCode
+                if (200..<300).contains(statusCode) {
+                    completion(.success(nil))
+                } else if statusCode == 403 {
+                    completion(.failure(.duple("이미 사용중인 사용자 입니다")))
+                } else if statusCode >= 500 {
+                    completion(.failure(.serverError))
+                }
             }
-            completion()
-        }
+        }.resume()
     }
 }

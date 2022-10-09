@@ -10,10 +10,22 @@ import UIKit
 class SignupViewController: UIViewController {
 
     @IBOutlet weak var emailInput: UITextField!
+    var emailText: String? {
+        return emailInput.text
+    }
     @IBOutlet weak var nickNameInput: UITextField!
+    var nickNameText: String? {
+        return nickNameInput.text
+    }
     @IBOutlet weak var passwordInput: UITextField!
+    var passwordText: String? {
+        return passwordInput.text
+    }
     @IBOutlet weak var confirmPasswordInput: UITextField!
     @IBOutlet weak var errorMessageLabel: UILabel!
+    
+    var viewModel: SignupViewModel?
+    weak var delegate: SignUpDelegate?
     
     var errorMessage = "" {
         didSet {
@@ -36,6 +48,19 @@ class SignupViewController: UIViewController {
             errorMessage = "비밀번호 확인이 일치하지 않습니다."
             return
         }
+        viewModel?.submitSignUp(email: emailText!, nickname: nickNameText!, password: passwordText!, completion: { result in
+            switch result {
+                case .success(_):
+                    self.delegate?.didSignUp()
+                case .failure(let error):
+                    switch error {
+                        case .duple(let receivedMessage):
+                            self.errorMessage = receivedMessage
+                        case .serverError:
+                            self.errorMessage = "알수없는 애러입니다."
+                    }
+            }
+        })
     }
 }
 
@@ -96,4 +121,9 @@ extension SignupViewController {
         }
         return false
     }
+}
+
+// MARK: Protocol
+protocol SignUpDelegate: AnyObject {
+    func didSignUp()
 }

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+
+enum SignUpError: Error {
+    case duple(String)
+    case serverError
+}

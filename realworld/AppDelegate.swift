@@ -18,10 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let signUpViewModel = SignupViewModel()
         let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! SignupViewController
+        rvc.delegate = self
         rvc.viewModel = signUpViewModel
         window?.rootViewController = rvc
         
         return true
+    }
+}
+
+// MARK: Delegate
+extension AppDelegate: SignUpDelegate {
+    func didSignUp() {
+        // TODO: didSignUp
+        print("TODO: didSignUp")
     }
 }
 
