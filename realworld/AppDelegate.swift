@@ -16,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-//        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! SignupViewController
-//        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignupViewController") as! SignupViewController
-        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-//        let signUpViewModel = SignupViewModel()
-//        rvc.delegate = self
-//        rvc.viewModel = signUpViewModel
+        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
         window?.rootViewController = rvc
         
         return true
@@ -42,14 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options: .transitionCrossDissolve,
             animations: nil,
             completion: nil)
-    }
-}
-
-// MARK: Delegate
-extension AppDelegate: SignUpDelegate {
-    func didSignUp() {
-        // TODO: didSignUp
-        print("TODO: didSignUp")
     }
 }
 

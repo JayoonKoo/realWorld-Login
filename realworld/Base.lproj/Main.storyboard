@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="SignupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SignupViewController" customModule="realworld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQi-Aj-aSc">
-                                <rect key="frame" x="16" y="303" width="382" height="300"/>
+                                <rect key="frame" x="16" y="293" width="382" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxf-3Q-Iyj">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
@@ -86,12 +86,22 @@
                                     <constraint firstAttribute="trailing" secondItem="pxf-3Q-Iyj" secondAttribute="trailing" id="xgC-Td-qQh"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j5X-6P-AjK">
+                                <rect key="frame" x="8" y="60" width="37" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="onBackTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jzs-4Q-hfh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="j5X-6P-AjK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Nly-Oa-CHI"/>
                             <constraint firstItem="XQi-Aj-aSc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cwF-Dw-4GW"/>
                             <constraint firstItem="XQi-Aj-aSc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ho5-fw-n0t"/>
+                            <constraint firstItem="j5X-6P-AjK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="lug-f2-z8d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XQi-Aj-aSc" secondAttribute="trailing" constant="16" id="wDK-95-xn4"/>
                         </constraints>
                     </view>
@@ -171,15 +181,31 @@
                                     <constraint firstItem="d1s-on-L1P" firstAttribute="leading" secondItem="cVd-TJ-OTA" secondAttribute="leading" id="zTQ-D1-XZB"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZv-V6-jY4">
+                                <rect key="frame" x="73" y="569" width="268" height="28.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="아직 회원이 아니신가요? 회원가입 하러 가기">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="rJ8-5e-NPP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ONL-hV-6fy"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cVd-TJ-OTA" firstAttribute="centerY" secondItem="ONL-hV-6fy" secondAttribute="centerY" id="2n9-JM-tWX"/>
                             <constraint firstItem="cVd-TJ-OTA" firstAttribute="leading" secondItem="ONL-hV-6fy" secondAttribute="leading" constant="16" id="KyG-43-Tp5"/>
+                            <constraint firstItem="sZv-V6-jY4" firstAttribute="leading" secondItem="ONL-hV-6fy" secondAttribute="leading" constant="73" id="ZKK-UH-Uv7"/>
+                            <constraint firstItem="sZv-V6-jY4" firstAttribute="top" secondItem="cVd-TJ-OTA" secondAttribute="bottom" constant="8" id="Zjb-Mf-W3r"/>
                             <constraint firstItem="ONL-hV-6fy" firstAttribute="trailing" secondItem="cVd-TJ-OTA" secondAttribute="trailing" constant="16" id="a75-Uc-ycY"/>
+                            <constraint firstItem="ONL-hV-6fy" firstAttribute="trailing" secondItem="sZv-V6-jY4" secondAttribute="trailing" constant="73" id="eOh-bw-hoS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorMessageLabel" destination="xhY-tm-Jyw" id="igl-eg-d3q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mg9-42-E1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,6 +213,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

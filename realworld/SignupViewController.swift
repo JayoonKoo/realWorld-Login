@@ -25,7 +25,6 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     var viewModel: SignupViewModel?
-    weak var delegate: SignUpDelegate?
     
     var errorMessage = "" {
         didSet {
@@ -51,7 +50,7 @@ class SignupViewController: UIViewController {
         viewModel?.submitSignUp(email: emailText!, nickname: nickNameText!, password: passwordText!, completion: { result in
             switch result {
                 case .success(_):
-                    self.delegate?.didSignUp()
+                    self.presentingViewController?.dismiss(animated: true)
                 case .failure(let error):
                     switch error {
                         case .duple(let receivedMessage):
@@ -62,6 +61,12 @@ class SignupViewController: UIViewController {
             }
         })
     }
+    
+    @IBAction func onBackTapped(_ sender: UIButton) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
+    
+    
 }
 
 // MARK: setup
@@ -133,9 +138,4 @@ extension SignupViewController {
         }
         return false
     }
-}
-
-// MARK: Protocol
-protocol SignUpDelegate: AnyObject {
-    func didSignUp()
 }
