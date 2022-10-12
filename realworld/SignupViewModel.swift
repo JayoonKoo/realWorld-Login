@@ -7,11 +7,10 @@
 
 import Foundation
 
-class SignupViewModel {
-    let baseUrl = "http://localhost:3065/user"
+class SignupViewModel: Request {
     
     func submitSignUp(email: String, nickname: String, password: String, completion: @escaping (Result<UserModel?, SignUpError>) -> Void) {
-        guard let url = URL(string: baseUrl) else {
+        guard let url = URL(string: "\(baseUrl)/user") else {
             print("url 생성 오류")
             return
         }

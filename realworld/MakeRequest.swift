@@ -7,12 +7,18 @@
 
 import Foundation
 
-func makeRequest(url: URL, method: String, body: [String: AnyHashable]) -> URLRequest {
-    var request = URLRequest(url: url)
+class Request {
     
-    request.httpMethod = method
-    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    let baseUrl = "http://localhost:3065"
     
-    return request
+    func makeRequest(url: URL, method: String, body: [String: AnyHashable]) -> URLRequest {
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = method
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        return request
+    }
 }
+
