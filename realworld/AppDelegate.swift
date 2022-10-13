@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
         window?.rootViewController = rvc
         
+        registerForRemoteNotification()
         return true
     }
     
@@ -37,6 +39,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options: .transitionCrossDissolve,
             animations: nil,
             completion: nil)
+    }
+    
+    func registerForRemoteNotification() {
+        if #available(iOS 10.0, *) {
+            let center  = UNUserNotificationCenter.current()
+            
+            center.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+                DispatchQueue.main.async {
+                    if error == nil{
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
+            
+        }
+        else {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+        }
     }
 }
 
