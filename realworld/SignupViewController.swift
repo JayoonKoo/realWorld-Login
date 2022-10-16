@@ -56,7 +56,7 @@ class SignupViewController: UIViewController {
                         case .duple(let receivedMessage):
                             self.errorMessage = receivedMessage
                         case .serverError:
-                            self.presentAlert()
+                            self.presentAlert(title: "에러", message: serverErrorMessage)
                     }
             }
         })
@@ -99,18 +99,6 @@ extension SignupViewController: UITextFieldDelegate {
         return true
     }
 }
-
-// MARK: Action
-extension SignupViewController {
-    func presentAlert() {
-        let alert = UIAlertController(title: "에러", message: "서버 에러 - 잠시 후 다시 시도해주세요.", preferredStyle: .alert)
-        let cancleAction = UIAlertAction(title: "확인", style: .cancel)
-        alert.addAction(cancleAction)
-        
-        self.present(alert, animated: false)
-    }
-}
-
 
 // MARK: Validation
 extension SignupViewController {
