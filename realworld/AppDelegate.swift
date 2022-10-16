@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         
         let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
+        let loginViewModel = LoginViewModel()
+        rvc.viewModel = loginViewModel
         window?.rootViewController = rvc
         
         registerForRemoteNotification()
