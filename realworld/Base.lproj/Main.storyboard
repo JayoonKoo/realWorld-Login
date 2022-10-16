@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UCH-hx-TDp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -161,6 +162,7 @@
                                         <buttonConfiguration key="configuration" style="filled" title="로그인"/>
                                         <connections>
                                             <action selector="onSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U5K-kh-S9r"/>
+                                            <action selector="onTapLoginBtn:" destination="UCH-hx-TDp" eventType="touchUpInside" id="krG-GA-WmB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -182,11 +184,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZv-V6-jY4">
-                                <rect key="frame" x="73" y="569" width="268" height="28.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="아직 회원이 아니신가요? 회원가입 하러 가기">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
-                                </buttonConfiguration>
+                                <rect key="frame" x="16" y="569" width="382" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="아직 회원이 아니신가요? 회원가입 하러 가기"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="rJ8-5e-NPP"/>
                                 </connections>
@@ -197,14 +198,17 @@
                         <constraints>
                             <constraint firstItem="cVd-TJ-OTA" firstAttribute="centerY" secondItem="ONL-hV-6fy" secondAttribute="centerY" id="2n9-JM-tWX"/>
                             <constraint firstItem="cVd-TJ-OTA" firstAttribute="leading" secondItem="ONL-hV-6fy" secondAttribute="leading" constant="16" id="KyG-43-Tp5"/>
-                            <constraint firstItem="sZv-V6-jY4" firstAttribute="leading" secondItem="ONL-hV-6fy" secondAttribute="leading" constant="73" id="ZKK-UH-Uv7"/>
+                            <constraint firstItem="sZv-V6-jY4" firstAttribute="leading" secondItem="ONL-hV-6fy" secondAttribute="leading" constant="16" id="ZKK-UH-Uv7"/>
                             <constraint firstItem="sZv-V6-jY4" firstAttribute="top" secondItem="cVd-TJ-OTA" secondAttribute="bottom" constant="8" id="Zjb-Mf-W3r"/>
                             <constraint firstItem="ONL-hV-6fy" firstAttribute="trailing" secondItem="cVd-TJ-OTA" secondAttribute="trailing" constant="16" id="a75-Uc-ycY"/>
-                            <constraint firstItem="ONL-hV-6fy" firstAttribute="trailing" secondItem="sZv-V6-jY4" secondAttribute="trailing" constant="73" id="eOh-bw-hoS"/>
+                            <constraint firstItem="ONL-hV-6fy" firstAttribute="trailing" secondItem="sZv-V6-jY4" secondAttribute="trailing" constant="16" id="eOh-bw-hoS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailInput" destination="DAz-Yv-NX0" id="uhc-nZ-Y4b"/>
                         <outlet property="errorMessageLabel" destination="xhY-tm-Jyw" id="igl-eg-d3q"/>
+                        <outlet property="passwordInput" destination="uAO-k7-o4P" id="16a-P7-HRi"/>
+                        <outlet property="signUpPresentButton" destination="sZv-V6-jY4" id="Gu7-WA-6cf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mg9-42-E1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
