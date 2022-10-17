@@ -15,7 +15,7 @@ enum SignUpError: Error {
 }
 
 enum LoginError: Error {
-    case invalidateUser
+    case invalidateUser(String?)
     case serverError
     case decodingError
 }

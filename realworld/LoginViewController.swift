@@ -52,8 +52,8 @@ class LoginViewController: UIViewController {
                     print(user)
                 case .failure(let error):
                     switch error {
-                        case .invalidateUser:
-                            self.errorMessage = "이메일과 비밀번호가 일치하지 않습니다."
+                        case .invalidateUser(let serverSentMessage):
+                            self.errorMessage = serverSentMessage ?? "이메일과 비밀번호가 일치하지 않습니다."
                         case .serverError:
                             self.presentAlert(title: "에러", message: serverErrorMessage)
                         case .decodingError:

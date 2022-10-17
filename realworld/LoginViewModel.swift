@@ -41,7 +41,8 @@ class LoginViewModel: Request {
                         completion(.failure(.decodingError))
                     }
                 } else if 401 == statusCode {
-                    completion(.failure(.invalidateUser))
+                    let errorMessage = String(bytes: data, encoding: .utf8)
+                    completion(.failure(.invalidateUser(errorMessage)))
                 } else {
                     completion(.failure(.serverError))
                 }
