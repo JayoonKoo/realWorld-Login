@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! LoginViewController
         let loginViewModel = LoginViewModel()
+        rvc.delegate = self
         rvc.viewModel = loginViewModel
         window?.rootViewController = rvc
         
@@ -63,3 +64,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+// MARK: LoginDelegate
+extension AppDelegate: LoginDelegate {
+    func didLogin(user: UserModel) {
+        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        setRootViewController(rvc, animated: true)
+    }
+}

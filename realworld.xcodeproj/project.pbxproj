@@ -19,6 +19,7 @@
 		F3DF34C328F3068200237AA5 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C228F3068200237AA5 /* SignupViewModel.swift */; };
 		F3DF34C528F306CF00237AA5 /* MakeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C428F306CF00237AA5 /* MakeRequest.swift */; };
 		F3DF34C928F3176B00237AA5 /* Erros.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C828F3176B00237AA5 /* Erros.swift */; };
+		F3EA18E428FEE05400A236B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EA18E328FEE05400A236B4 /* MainViewController.swift */; };
 		F3EE5CD128F587D2008E0852 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EE5CD028F587D2008E0852 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		F3DF34C228F3068200237AA5 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		F3DF34C428F306CF00237AA5 /* MakeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeRequest.swift; sourceTree = "<group>"; };
 		F3DF34C828F3176B00237AA5 /* Erros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Erros.swift; sourceTree = "<group>"; };
+		F3EA18E328FEE05400A236B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3EE5CD028F587D2008E0852 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			children = (
 				F3DF34AC28F0619200237AA5 /* SignupViewController.swift */,
 				F3EE5CD028F587D2008E0852 /* LoginViewController.swift */,
+				F3EA18E328FEE05400A236B4 /* MainViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DF34AD28F0619200237AA5 /* SignupViewController.swift in Sources */,
+				F3EA18E428FEE05400A236B4 /* MainViewController.swift in Sources */,
 				F3DF34C328F3068200237AA5 /* SignupViewModel.swift in Sources */,
 				F3DF34A928F0619200237AA5 /* AppDelegate.swift in Sources */,
 				F3DF34C928F3176B00237AA5 /* Erros.swift in Sources */,

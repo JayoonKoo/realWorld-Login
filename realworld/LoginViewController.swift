@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     }
     
     var viewModel: LoginViewModel?
+    weak var delegate: LoginDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class LoginViewController: UIViewController {
         viewModel.login(request: request) { result in
             switch result {
                 case .success(let user):
-                    print(user)
+                    self.delegate?.didLogin(user: user)
                 case .failure(let error):
                     switch error {
                         case .invalidateUser(let serverSentMessage):
@@ -75,3 +76,7 @@ extension LoginViewController {
     }
 }
 
+
+protocol LoginDelegate: AnyObject {
+    func didLogin(user: UserModel)
+}
