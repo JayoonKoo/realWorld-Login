@@ -14,12 +14,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var signUpPresentButton: UIButton!
     
-    var errorMessage = "" {
-        didSet {
-            errorMessageLabel.text = errorMessage
-        }
-    }
-    
     var viewModel: LoginViewModel?
     weak var delegate: LoginDelegate?
     
@@ -36,14 +30,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onTapLoginBtn(_ sender: Any) {
-        errorMessage = ""
         guard let email = emailInput.text, let password = passwordInput.text else {return}
         guard let viewModel = viewModel else {
             presentAlert(title: "", message: "로그인에 문제가 있네요, 복구중 입니다. 죄송합니다.(1)")
             return
         }
         if email.isEmpty || password.isEmpty {
-            errorMessage = "이메일과 비밀번호를 모두 입력해주세요."
+            errorMessageLabel.text = "이메일과 비밀번호를 모두 입력해주세요."
             return
         }
         let request = LoginRequest(email: email, password: password)
@@ -53,12 +46,12 @@ class LoginViewController: UIViewController {
                     self.delegate?.didLogin(user: user)
                 case .failure(let error):
                     switch error {
-                        case .invalidateUser(let serverSentMessage):
-                            self.errorMessage = serverSentMessage ?? "이메일과 비밀번호가 일치하지 않습니다."
                         case .serverError:
                             self.presentAlert(title: "에러", message: serverErrorMessage)
                         case .decodingError:
                             self.presentAlert(title: "", message: "로그인에 문제가 있네요, 복구중 입니다. 죄송합니다.(2)")
+                        default:
+                            return
                     }
             }
         }
@@ -69,10 +62,16 @@ class LoginViewController: UIViewController {
 // MARK: setup
 extension LoginViewController {
     private func setup() {
-        errorMessageLabel.text = errorMessage
+        errorMessageLabel.text = viewModel?.errorMessage
         signUpPresentButton.translatesAutoresizingMaskIntoConstraints = false
         signUpPresentButton.titleLabel?.font = .systemFont(ofSize: 12)
         passwordInput.isSecureTextEntry = true
+        
+        viewModel?.onErrorUpdated = {
+            DispatchQueue.main.async {
+                self.errorMessageLabel.text = self.viewModel?.errorMessage
+            }
+        }
     }
 }
 

@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: LoginDelegate
 extension AppDelegate: LoginDelegate {
     func didLogin(user: UserModel) {
-        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        setRootViewController(rvc, animated: true)
+//        let rvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+//        setRootViewController(rvc, animated: true)
     }
 }

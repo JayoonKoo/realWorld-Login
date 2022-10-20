@@ -12,3 +12,14 @@ struct UserModel: Codable {
     let nickname: String
 }
 
+struct LoginRequest {
+    let email: String
+    let password: String
+}
+
+struct LoginResponse: Codable {
+    let id: Int
+    let nickname: String
+    let email: String
+    let Posts: [PostModel]
+}
