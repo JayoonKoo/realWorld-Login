@@ -21,6 +21,7 @@
 		F3DF34C928F3176B00237AA5 /* Erros.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DF34C828F3176B00237AA5 /* Erros.swift */; };
 		F3EA18E428FEE05400A236B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EA18E328FEE05400A236B4 /* MainViewController.swift */; };
 		F3EA18E62900F42F00A236B4 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EA18E52900F42F00A236B4 /* PostModel.swift */; };
+		F3EA18E82904FE4000A236B4 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EA18E72904FE4000A236B4 /* UIColor+Hex.swift */; };
 		F3EE5CD128F587D2008E0852 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EE5CD028F587D2008E0852 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		F3DF34C828F3176B00237AA5 /* Erros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Erros.swift; sourceTree = "<group>"; };
 		F3EA18E328FEE05400A236B4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3EA18E52900F42F00A236B4 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		F3EA18E72904FE4000A236B4 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		F3EE5CD028F587D2008E0852 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 			children = (
 				F3DF34C828F3176B00237AA5 /* Erros.swift */,
 				F31C3DE728F97E2600398DD1 /* UIViewController+Alert.swift */,
+				F3EA18E72904FE4000A236B4 /* UIColor+Hex.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				F3EE5CD128F587D2008E0852 /* LoginViewController.swift in Sources */,
 				F31C3DE828F97E2600398DD1 /* UIViewController+Alert.swift in Sources */,
 				F3DF34C528F306CF00237AA5 /* MakeRequest.swift in Sources */,
+				F3EA18E82904FE4000A236B4 /* UIColor+Hex.swift in Sources */,
 				F3DF34C128F3057300237AA5 /* UserModel.swift in Sources */,
 				F3DF34AB28F0619200237AA5 /* SceneDelegate.swift in Sources */,
 				F31C3DE628F976D200398DD1 /* LoginViewModel.swift in Sources */,

@@ -14,6 +14,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var signUpPresentButton: UIButton!
     
+    @IBOutlet weak var emailFieldView: UIView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailPlaceHolderLabel: UILabel!
+    @IBOutlet weak var emailTextFieldTopConstraint: NSLayoutConstraint!
+    
     var viewModel: LoginViewModel?
     weak var delegate: LoginDelegate?
     
@@ -57,6 +62,10 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
 }
 
 // MARK: setup
@@ -72,6 +81,12 @@ extension LoginViewController {
                 self.errorMessageLabel.text = self.viewModel?.errorMessage
             }
         }
+        
+        emailFieldView.layer.borderWidth = 1
+        emailFieldView.layer.borderColor = UIColor(rgb: 0xe3dfde).cgColor
+        emailFieldView.layer.cornerRadius = 5
+        
+        emailTextField.delegate = self
     }
 }
 
@@ -79,3 +94,25 @@ extension LoginViewController {
 protocol LoginDelegate: AnyObject {
     func didLogin(user: UserModel)
 }
+
+
+// MARK: textFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        emailTextFieldTopConstraint.constant = 8
+        emailPlaceHolderLabel.font = UIFont.systemFont(ofSize: 12)
+        UIView.animate(withDuration: 0.2) {
+            self.emailFieldView.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text, text.isEmpty else {return}
+        emailTextFieldTopConstraint.constant = 20
+        emailPlaceHolderLabel.font = UIFont.systemFont(ofSize: 14)
+        UIView.animate(withDuration: 0.2) {
+            self.emailFieldView.layoutIfNeeded()
+        }
+    }
+}
+
