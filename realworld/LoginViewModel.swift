@@ -8,7 +8,7 @@
 import Foundation
 
 
-class LoginViewModel: Request {
+final class LoginViewModel: Request {
     
     var onErrorUpdated: () -> Void = {}
     

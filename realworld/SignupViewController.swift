@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
+final class SignupViewController: UIViewController {
 
     @IBOutlet weak var emailInput: UITextField!
     var emailText: String? {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SignupViewModel: Request {
+final class SignupViewModel: Request {
     
     func submitSignUp(email: String, nickname: String, password: String, completion: @escaping (Result<UserModel?, SignUpError>) -> Void) {
         guard let url = URL(string: "\(baseUrl)/user") else {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var emailInput: UITextField!
